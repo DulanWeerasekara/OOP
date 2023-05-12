@@ -1,0 +1,35 @@
+nav {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-section {
+  margin-left: 20px;
+}
+
+.right-section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-section li {
+  margin-right: 20px;
+}
+
+.right-section li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.right-section li a:hover {
+  background-color: #111;
+}
