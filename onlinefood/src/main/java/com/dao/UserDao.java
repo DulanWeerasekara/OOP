@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.io.Console;
 import java.sql.*;
 
 import com.model.*;
@@ -34,4 +35,16 @@ public class UserDao {
         }
         return user;
     }
+	public void createUser(String name, String email, String password) {
+	    try {
+	        query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+	        pst = this.con.prepareStatement(query);
+	        pst.setString(1, name);
+	        pst.setString(2, email);
+	        pst.setString(3, password);
+	        pst.executeUpdate();
+	    } catch (SQLException e) {
+	        System.out.println(e.getMessage());
+	    }
+	}
 }

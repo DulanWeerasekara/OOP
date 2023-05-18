@@ -29,13 +29,17 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
 }
+.title{
+background-color:#fff;
+font-size: 40px;
+}
 </style>
 </head>
 <body>
 	<%@include file="/includes/navbar.jsp"%>
 
 	<div class="container">
-		<div class="card-header my-50">All Products</div>
+		<div class="title">All Products</div>
 		<div class="row">
 			<%
 			if (!products.isEmpty()) {
@@ -47,7 +51,7 @@ body {
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"><%=p.getName() %></h5>
-						<h6 class="price">Price: $<%=p.getPrice() %></h6>
+						<h6 class="price">Price: Rs.<%=p.getPrice() %></h6>
 						<h6 class="category">Category: <%=p.getCategory() %></h6>
 						<div class="mt-3 d-flex justify-content-between">
 							<a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> <a

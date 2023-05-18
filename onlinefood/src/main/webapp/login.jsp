@@ -3,7 +3,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%
+<%
 	User auth = (User) request.getSession().getAttribute("auth");
 	if (auth != null) {
 		response.sendRedirect("index.jsp");
@@ -12,7 +12,7 @@
 	if (cart_list != null) {
 		request.setAttribute("cart_list", cart_list);
 	}
-	%>
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,15 +24,16 @@
 <%@include file="/includes/navbar.jsp"%>
   <div class="login-container">
     <h1>Login</h1>
-    <form action="login.jsp" method="post" onsubmit="return validateForm()">
+    <form action="user-login" method="post" onsubmit="return validateForm()">
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" name="login-email" placeholder="Enter email" required>
 
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
+      <input type="password" name="login-password" required>
 
       <input type="submit" value="Login">
     </form>
+     <button onclick="window.location.href='create.jsp'">Create Account</button>
   </div>
 
   <script>
