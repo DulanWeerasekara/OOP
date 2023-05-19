@@ -11,7 +11,8 @@
 				if (auth != null) {
 				%>
         <li><a href="orders.jsp">Order</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="account-details">Profile</a></li>
+        <li><a href="log-out">Logout</a></li>
         <%
 				} else {
 				%>
