@@ -29,22 +29,60 @@ if (cart_list != null) {
 <title>Cart</title>
 <style type="text/css">
 
-.table tbody td{
-vertical-align: middle;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
-.btn-incre, .btn-decre{
-box-shadow: none;
-font-size: 25px;
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
 }
+
+table th {
+  background-color: #f2f2f2;
+}
+table tbody {
+  background-color: #ffffff; 
+}
+
+.btn-incre,
+.btn-decre {
+  box-shadow: none;
+  font-size: 25px;
+}
+
 body {
-  background-image: url('styles/backgr.jpg');
+   background-image: url('styles/backgr.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
-.title{
-background-color:#fff;
+
+.title {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
 }
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 60px;
+}
+
+.btn-primary,
+.btn-danger {
+  padding: 5px 10px;
+}
+
 </style>
 </head>
 <body>
@@ -55,15 +93,15 @@ background-color:#fff;
 	
 
 	<div class="container my-3">
-		<div class ="title"><h3>Total Price: Rs ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
-		<table class="table table-light">
+		<div class ="title"><h3>Total Price: Rs ${(total>0)?dcf.format(total):0} <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></h3> </div>
+		<table>
 			<thead>
 				<tr>
-					<th scope="col">Name</th>
-					<th scope="col">Category</th>
-					<th scope="col">Price</th>
-					<th scope="col">Buy Now</th>
-					<th scope="col">Cancel</th>
+					<th>Name</th>
+					<th>Category</th>
+					<th>Price</th>
+					<th>Buy Now</th>
+					<th>Cancel</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -76,17 +114,17 @@ background-color:#fff;
 					<td><%=c.getCategory()%></td>
 					<td><%= dcf.format(c.getPrice())%></td>
 					<td>
-						<form action="order-now" method="post" class="form-inline">
-						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
-							<div class="form-group d-flex justify-content-between">
-								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
+						<form action="order-now" method="post">
+						<input type="hidden" name="id" value="<%= c.getId()%>">
+							<div class="form-group">
+								<a class="btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
 								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
-								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
-							</div>
-							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
+								<a class="btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
+								<button type="submit" class="btn btn-primary">Buy</button></div>
+						
 						</form>
 					</td>
-					<td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
+					<td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-danger">Remove</a></td>
 				</tr>
 
 				<%

@@ -10,6 +10,7 @@
         background-color: #f7f7f7;
         margin: 0;
         padding: 0;
+        background-image: url('styles/backgr.jpg');
     }
 
     .account-details-container {
@@ -43,7 +44,7 @@
         justify-content: flex-end;
     }
 
-    .action-button {
+    .edit-button {
         margin-left: 10px;
         padding: 5px 10px;
         background-color: #4caf50;
@@ -53,8 +54,22 @@
         cursor: pointer;
     }
 
-    .action-button:hover {
+    .edit-button:hover {
         background-color: #45a049;
+    }
+
+    .delete-button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        background-color: #f44336;
+        color: #ffffff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .delete-button:hover {
+        background-color: #d32f2f;
     }
 </style>
 <%
@@ -86,9 +101,8 @@
         <span class="card-label">Email:</span>
         <span class="card-value"><%= userDetails.getEmail() %></span>
         <div class="action-buttons">
-            <button class="action-button" onclick="editAccount()">Edit</button>
-            <button class="action-button" onclick="deleteAccount()">Delete</button>
-            
+            <button class="edit-button" onclick="editAccount()">Edit</button>
+            <button class="delete-button" onclick="deleteAccount()">Delete</button>
         </div>
     </div>
     <% 

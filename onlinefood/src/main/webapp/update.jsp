@@ -7,9 +7,21 @@
     <style>
         /* Styles for the edit user form */
         .edit-user-form {
-            max-width: 400px;
-            margin: 0 auto;
+            margin: 20px auto;
+    width: 400px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
         }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+             background-image: url('styles/backgr.jpg');
+        }
+        
 
         .edit-user-form label {
             display: block;
